@@ -312,6 +312,9 @@ Extra features that S3 provides along with hosting a static website:
 
 5. Hosting your website in your own specail domain.
 
+      Hosting your website on a custom domain (like www.yourname.com) instead of a generic URL (like yourname.netlify.com or yourname.wordpress.com) gives your 
+      website a professional, branded identity.
+
    
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
