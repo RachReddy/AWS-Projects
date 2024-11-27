@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90vmin;  /* This ensures the container stays square */
+            height: 90vmin; /* Make the height same as width */
+            max-width: 500px; /* Optional max width for large screens */
+            max-height: 500px; /* Optional max height for large screens */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px; /* Adjusted for better visibility */
+        }
+        label {
+            font-size: 16px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Hide arrows in number input for Chrome, Safari, Edge, and Opera */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Hide arrows in number input for Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    
+    <script>
+        async function calculateDiscount() {
+            const price = document.getElementById('price').value;
+            const discount = document.getElementById('discount').value;
+
+            // Clear previous results and error messages
+            document.getElementById('result').innerText = '';
+            document.getElementById('error-message').innerText = '';
+
+            // Validate inputs
+            if (!price || !discount || discount <= 0) {
+                document.getElementById('error-message').innerText = 'Please enter a valid price and discount greater than 0.';
+                return;
+            }
+
+            const payload = {
+                price: parseFloat(price),
+                discount: parseFloat(discount)
+            };
+
+            // Replace with your actual API Gateway URL from AWS 
+            const apiUrl = 'https://tnpt5y3tjg.execute-api.ap-south-1.amazonaws.com/Dev'; 
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('API Response:', data);  // Log the API response to check its structure
+
+                    if (data.hasOwnProperty('body')) {
+                        document.getElementById('result').innerText = `Discounted Price: $${data.body.toFixed(2)}`;
+                    }
+                    else {
+                        document.getElementById('error-message').innerText = 'Error: Invalid response from API.';
+                    }
+                } else {
+                    document.getElementById('error-message').innerText = 'Error: Unable to calculate discount. Please try again later.';
+                }
+            } catch (error) {
+                console.error('Error calling API:', error);
+                document.getElementById('error-message').innerText = 'An error occurred while contacting the server.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Discount Calculator</h1>
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" placeholder="Enter price" required>
+        <br>
+
+        <label for="discount">Discount (%):</label>
+        <input type="number" id="discount" placeholder="Enter discount" required min="0.01">
+
+        <button onclick="calculateDiscount()">Calculate Discount</button>
+
+        <p id="result"></p>
+        <p id="error-message" class="error"></p>
+    </div>
+</body>
+</html>
