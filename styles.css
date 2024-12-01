@@ -1,119 +1,291 @@
 /* Global Styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
-}
-
-/* Container */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2em;
-}
-
-/* Header */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 3em 0;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.2em;
-}
-header p {
-  font-size: 1.2em;
-  font-weight: 300;
-}
-
-/* Sections */
-section {
-  padding: 3em 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-section h2 {
-  font-size: 1.8em;
-  color: #444;
-  margin-bottom: 0.5em;
-}
-
-#about p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1em;
-  color: #555;
-  text-align: center;
-}
-
-/* Skills */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  list-style-type: none;
-  padding: 1em;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.skills-list li {
-  font-size: 1.1em;
-  flex: 1 1 45%;
-  margin-bottom: 0.5em;
-}
-
-/* Projects */
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5em;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.project {
-  border: 1px solid #ddd;
-  padding: 1.5em;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 8px;
-}
-.project h3 {
-  margin-bottom: 0.5em;
-  font-size: 1.4em;
   color: #333;
-}
-.project p {
-  font-size: 1em;
-  color: #666;
+  background-color: #f9f9f9;
+  scroll-behavior: smooth;
 }
 
-/* Contact */
-#contact p {
-  font-size: 1.1em;
-  text-align: center;
-  margin: 0.5em 0;
+/* Header Styles */
+header.white-bg {
+  display: flex; /* Set as flexbox */
+  justify-content: space-between; /* Space between left and center */
+  align-items: center; /* Align items vertically */
+  background: #fff; /* White background */
+  color: #000; /* Black text color */
+  padding: 10px 20px;
+  position: fixed;
+  width: 130%;
+  z-index: 1000;
+  top: 0;
 }
-#contact a {
-  color: #3498db;
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Space between links */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+}
+
+
+/* Navigation Links Hover Effect */
+.nav-links a {
+  color: #000; /* Black text for links */
   text-decoration: none;
 }
-#contact a:hover {
+
+.nav-links a:hover {
+  color: #0078D4; /* Highlighted blue on hover */
+}
+
+/* Hero Styles */
+/*
+.hero {
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+  */
+/* Hero Styles */
+.hero {
+  display: flex;
+  justify-content: space-between; /* Ensures content is on the left and image is on the right */
+  align-items: center; /* Aligns items vertically to the center */
+  padding: 100px 30px; /* Added padding to avoid the image touching the header */
+  height: 110vh; /* Full viewport height */
+  box-sizing: border-box; /* Ensures padding doesn't affect the height calculation */
+}
+
+.hero-text {
+  max-width: 70%; /* Occupy the left half */
+  padding: 40px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  align-items: auto;
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+.hero-image {
+  max-width: 110%; /* Occupy the right half */
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically within the right half */
+  height: 110%; /* Make sure the image container is 100% height */
+}
+
+.hero-image img {
+  max-width: 74%; /* Limit image width */
+  height: auto;
+  border-radius: 10px; /* Optional, for rounded corners */
+}
+
+/*social links*/
+#social-links {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Centers the items horizontally */
+  align-items: center; /* Centers the items vertically */
+  gap: 15px; /* Adds space between the icons */
+  margin-top: 20px; /* Optional: Adds some space above the icons */
+}
+
+#social-links a img {
+  width: 30px; /* Adjust the size of the icons */
+  height: 30px; /* Maintain aspect ratio */
+}
+
+
+ /* Work Experience Section */
+.experience-section {
+  padding: 50px 20px;
+  background-color: #f3eaea00;
+}
+
+.experience-container {
+  display: flex;
+  align-items: right;
+}
+
+.experience-image {
+  flex: 1; /* Make image take up the left half */
+  max-width: 350%; /* Full height and width on the left side */
+}
+
+.experience-image img {
+  width: 130%; /* Image takes full width of the container */
+  height: 100%; /* Ensures the image covers the full height */
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+  border-radius: 8px; /* Optional: to round image corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-text {
+  flex: 1; /* Take remaining space for text */
+  padding-left: 250px; /* Space between image and text */
+}
+
+.experience-text h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.experience-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-text ul li {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.experience-text ul li strong {
+  font-weight: bold;
+}
+
+.experience-text ul li em {
+  font-style: italic;
+}
+
+
+.light-bg {
+  background: #f9f9f9;
+}
+
+.dark-bg {
+  background: #2f2f2f;
+  color: #fff;
+}
+
+.social-links img {
+  width: 30px;
+  margin: 5px;
+  transition: transform 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+/*Project section*/
+.project-section {
+  padding: 50px 20px;
+  background-color:  #333;
+}
+
+.project-container {
+  display: flex;
+  align-items: center;
+}
+
+.project-image {
+  flex: 1; /* Make image take up the left half */
+  max-width: 350%; /* Full height and width on the left side */
+  padding:20px;
+}
+
+.project-image img {
+  width: 120%; /* Image takes full width of the container */
+  height: 90%; /* Ensures the image covers the full height */
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+  border-radius: 8px; /* Optional: to round image corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-text {
+  flex: 1; /* Take remaining space for text */
+  padding-left: 230px; /* Space between image and text */
+  color: #fff
+}
+
+.project-text h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff
+}
+
+.project-text ul {
+  list-style: none;
+  padding: 0;
+  color: #fff
+}
+
+.project-text ul li {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  color: #fff
+}
+
+.project-text ul li strong {
+  font-weight: bold;
+  color: #fff
+}
+
+.project-text ul li strong a {
+  font-weight: italic;
+  color:  #007BFF;
+}
+
+
+
+/*Blog section*/
+
+.blog section{
+  background-color: #fff;
+}
+.blog-list {
+  list-style-type: none;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers the content */
+  padding: 20px; /* Adjust padding as needed */
+  line-height: 1.6; /* Adjust line height for better readability */
+}
+
+.blog-list li {
+  margin: 10px 0;
+}
+
+.blog-link {
+  text-decoration: none;
+  color: #007BFF;
+  font-size: 16px;
+}
+
+.blog-link:hover {
   text-decoration: underline;
+  color: #0056b3;
+}
+
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #0078D4;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background: #005BB5;
 }
 
 /* Footer */
 footer {
-  background-color: #333;
+  background: #333;
   color: #fff;
   text-align: center;
-  padding: 1.5em 0;
-  font-size: 0.9em;
+  padding: 10px 0;
 }
+
