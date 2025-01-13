@@ -23,15 +23,24 @@ PROJECT ARCHITECTURE COMPONENTS
     + Hosts the backend logic for discount calculation.
     + Processes JSON inputs and returns results in real-time.
 
-2. API Gateway:
-    + Exposes the Lambda function via a RESTful endpoint.
-    + Handles HTTP POST requests from the frontend.
+2. API Gateway:  (In AWS, the API Gateway service helps you create, manage, and secure APIs for your applications.)
+    + Exposes the Lambda function via a RESTful endpoint. (OR Provides a URL (endpoint) to let users access the Lambda function.)
+    + Receives user input from the web app, sends it to Lambda for processing, and delivers the result back to the web app.
+    + In simple terms, it handles HTTP POST requests from the frontend.
+  
+      Points to remember
+      ------------------
+      > What is an API Gateway?
+      > It acts like a front door for all the APIs in an application.
+      > It acts as a bridge between users and your backend systems (like Lambda functions, EC2 instances, or databases).
+      > It handles requests from users, sends them to the right backend services, and returns the response to the user.
+     
 
-3. Frontend:
+4. Frontend:
     + Built using HTML, CSS, and JavaScript.
     + Provides an interactive user interface for data entry and displays results dynamically.
 
-4. CloudWatch:
+5. CloudWatch:
     + Monitors API and Lambda performance.
     + Logs requests and responses for debugging.
     
