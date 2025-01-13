@@ -5,7 +5,22 @@ OVERVIEW :
 >SecureS3Web is a secure and scalable solution for hosting static websites using Amazon S3 and CloudFront. The setup ensures that the S3 bucket remains private while providing HTTPS access to users through CloudFront, a content delivery network (CDN).
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
+Points to Remember
+------------------
+What is CloudFront?
+> In AWS, CloudFront is a Content Delivery Network (CDN) service.
 
+> It helps deliver your website, videos, or other content to users quickly and securely, no matter where they are in the world.
+
+>  CloudFront makes your content load faster, saves server resources, and keeps it secure.
+
+How?
+1. Speeds up delivery: CloudFront stores copies of your content (like images, videos, or web pages) in data centers around the globe (called edge locations). When a user requests your content, they get it from the nearest edge location, making it load faster.
+2. Improves reliability: It reduces the load on your main servers by caching content at the edge.
+3. Enhances security: It protects your content with features like HTTPS, encryption, and AWS Shield to guard against attacks.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
 *Steps to Access a Secure Website Using SecureS3Web Setup :*
 
 1. User Access:
