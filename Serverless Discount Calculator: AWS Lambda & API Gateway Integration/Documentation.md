@@ -95,3 +95,18 @@ STEPS :
 
     ---------------------------------------------------------------------------------------------------------------------------------------------
 
+Example of an HTTP POST Request (JSON Payload)
+
+POST /api/users HTTP/1.1
+
+    Host: example.com
+    
+    Content-Type: application/json
+    
+    Content-Length: 50
+    
+    
+    {
+      "name": "John Doe",
+      "email": "john@example.com"
+    }
