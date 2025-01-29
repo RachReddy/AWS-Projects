@@ -51,7 +51,11 @@ How?
  7. SSL/TLS via ACM:
 
      + AWS Certificate Manager (ACM) is integrated with CloudFront to provide SSL/TLS certificates, enabling secure HTTPS connections.
-
+     + An SSL/TLS certificate is a digital certificate that enables secure, encrypted communication between a web server and a client (browser).
+     + SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic protocols that secure data transmission.
+     + Encrypts data to prevent interception by attackers (man-in-the-middle attacks).
+     + HTTPS (HyperText Transfer Protocol Secure) uses SSL/TLS to secure websites.
+       
 ---------------------------------------------------------------------------------------------------------------------------------------------
  SUMMARY: 
  
